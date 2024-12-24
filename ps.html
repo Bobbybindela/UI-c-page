@@ -66,17 +66,20 @@
       .btn-primary {
         background-color: #8e4574;
         border-color: #8e4574;
-        color: #ffdefb;
+        color:#FFFFFF;
+        padding-left: 20px;
+        padding-right: 20px;
       }
 
       .btn-primary:hover {
-        background-color: #64305d;
+        background-color: #FFFFFF;
         border-color: #64305d;
-        color: #ffbdf6;
+        color: #1c1b1e;
       }
+
       .problem-number {
         background-color: #8e4574;
-        color: #ffdefb;
+        color: #FFFFFF;
         padding: 4px 10px;
         border-radius: 15px;
         min-width: 32px;
@@ -88,6 +91,113 @@
       .problem-title {
         flex: 1;
         padding-left: 5px;
+        max-width: 500px;
+        word-wrap: break-word;
+      }
+
+      .list-group-item {
+        flex-direction: column;
+        align-items: flex-start !important;
+      }
+
+      .list-group-item > .d-flex {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .problem-description {
+        max-height: 0;
+        overflow: hidden;
+        transition: all 0.3s ease-out;
+        padding: 0;
+        margin: 0;
+        opacity: 0;
+        max-width: 100%;
+        word-wrap: break-word;
+        border-top: 1px solid transparent;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+
+      .problem-description.show {
+        max-height: 500px;
+        padding: 15px 0 15px 47px;
+        margin-top: 10px;
+        opacity: 1;
+        border-top: 1px solid #dee2e6;
+      }
+
+      .problem-description-text {
+        flex: 1;
+        margin-right: 20px;
+      }
+
+      .action-button {
+        margin-top: 0;
+        align-self: flex-start;
+        justify-self: end;
+        padding: 6px 12px;
+        font-size: 0.875rem;
+      }
+
+      .button-group {
+        display: flex;
+        align-items: center;
+      }
+
+      .btn-secondary {
+        background-color: #8e4574;
+        color: white;
+        border: none;
+      }
+
+      .btn-secondary:hover {
+        background-color: #733960;
+      }
+
+      .modal-dialog {
+        max-width: 800px;
+      }
+
+      .problem-text {
+        background-color: #f8f9fa;
+        padding: 15px;
+        border-radius: 5px;
+        border: 1px solid #dee2e6;
+      }
+
+      .modal.fade .modal-dialog {
+        transform: scale(0.8);
+        transition: transform 0.3s ease-in-out;
+      }
+
+      .modal.show .modal-dialog {
+        transform: scale(1);
+      }
+
+      .modal-content {
+        animation: slideIn 0.3s ease-out;
+      }
+
+      .modal.fade {
+        transition: opacity 0.3s ease-in-out;
+      }
+
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .modal-backdrop.show {
+        opacity: 0.7;
+        transition: opacity 0.3s ease-in-out;
       }
     </style>
   </head>
@@ -96,7 +206,8 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">
-          <img src="3.png" alt="Logo" /> <!-- Replace with actual logo URL -->
+          <img src="3.png" alt="Logo" />
+          <!-- Replace with actual logo URL -->
         </a>
         <button
           class="navbar-toggler"
@@ -146,141 +257,228 @@
     <div class="container problem-statements">
       <h1>Problem Statements</h1>
       <ul class="list-group">
-        <li
-          class="list-group-item d-flex justify-content-between align-items-center"
-        >
-          <div class="d-flex align-items-center">
-            <span class="problem-number">1</span>
-            <span class="problem-title">Radial Drilling Machine</span>
+        <li class="list-group-item">
+          <div class="d-flex justify-content-between align-items-center">
+              <div class="d-flex align-items-center">
+                  <span class="problem-number">1</span>
+                  <span class="problem-title">Radial Drilling Machine</span>
+              </div>
+              <div class="button-group">
+                  <button class="btn btn-primary btn-sm" onclick="toggleDescription(1)">Start</button>
+              </div>
           </div>
-          <button class="btn btn-primary btn-sm">Submit solution</button>
+          <div id="description-1" class="problem-description">
+            <div class="problem-description-text">
+              In a radial drilling machine, accurately determining the depth of the hole while drilling can be challenging. The goal is to develop an attachment that can be added to the existing radial drilling machine, enabling it to semi-automatically control and monitor the drilling depth, ensuring precise results with less manual intervention.
+            </div>
+            <button class="btn btn-secondary action-button">Continue</button>
+          </div>
+      </li>
+        <li class="list-group-item">
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+              <span class="problem-number">2</span>
+              <span class="problem-title">ChildSafety</span>
+            </div>
+            <button class="btn btn-primary btn-sm" onclick="toggleDescription(2)">Start</button>
+          </div>
+          <div id="description-2" class="problem-description">
+            <div class="problem-description-text">
+              Child safety description...
+            </div>
+            <button class="btn btn-secondary action-button">Continue</button>
+          </div>
         </li>
-        <li
-          class="list-group-item d-flex justify-content-between align-items-center"
-        >
-          <div class="d-flex align-items-center">
-            <span class="problem-number">2</span>
-            <span class="problem-title">ChildSafety</span>
+        <li class="list-group-item">
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+              <span class="problem-number">3</span>
+              <span class="problem-title">Vehical and smart home management</span>
+            </div>
+            <button class="btn btn-primary btn-sm" onclick="toggleDescription(3)">Start</button>
           </div>
-          <button class="btn btn-primary btn-sm">Submit solution</button>
+          <div id="description-3" class="problem-description">
+            <div class="problem-description-text">
+              Vehicle and smart home management description...
+            </div>
+            <button class="btn btn-secondary action-button">Continue</button>
+          </div>
         </li>
-        <li
-          class="list-group-item d-flex justify-content-between align-items-center"
-        >
-          <div class="d-flex align-items-center">
-            <span class="problem-number">3</span>
-            <span class="problem-title">Vehical and smart home management</span>
+        <li class="list-group-item">
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+              <span class="problem-number">4</span>
+              <span class="problem-title">Machine</span>
+            </div>
+            <button class="btn btn-primary btn-sm">Start</button>
           </div>
-          <button class="btn btn-primary btn-sm">Submit solution</button>
         </li>
-        <li
-          class="list-group-item d-flex justify-content-between align-items-center"
-        >
-          <div class="d-flex align-items-center">
-            <span class="problem-number">4</span>
-            <span class="problem-title">Machine</span>
+        <li class="list-group-item">
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+              <span class="problem-number">5</span>
+              <span class="problem-title">Personal Protection</span>
+            </div>
+            <button class="btn btn-primary btn-sm">Start</button>
           </div>
-          <button class="btn btn-primary btn-sm">Submit solution</button>
         </li>
-        <li
-          class="list-group-item d-flex justify-content-between align-items-center"
-        >
-          <div class="d-flex align-items-center">
-            <span class="problem-number">5</span>
-            <span class="problem-title">Personal Protection</span>
+        <li class="list-group-item">
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+              <span class="problem-number">6</span>
+              <span class="problem-title">Bottle Packaging</span>
+            </div>
+            <button class="btn btn-primary btn-sm">Start</button>
           </div>
-          <button class="btn btn-primary btn-sm">Submit solution</button>
         </li>
-        <li
-          class="list-group-item d-flex justify-content-between align-items-center"
-        >
-          <div class="d-flex align-items-center">
-            <span class="problem-number">6</span>
-            <span class="problem-title">Bottle Packaging</span>
+        <li class="list-group-item">
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+              <span class="problem-number">7</span>
+              <span class="problem-title">SmartKitchen</span>
+            </div>
+            <button class="btn btn-primary btn-sm">Start</button>
           </div>
-          <button class="btn btn-primary btn-sm">Submit solution</button>
         </li>
-        <li
-          class="list-group-item d-flex justify-content-between align-items-center"
-        >
-          <div class="d-flex align-items-center">
-            <span class="problem-number">7</span>
-            <span class="problem-title">SmartKitchen</span>
+        <li class="list-group-item">
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+              <span class="problem-number">8</span>
+              <span class="problem-title">Piston Ring</span>
+            </div>
+            <button class="btn btn-primary btn-sm">Start</button>
           </div>
-          <button class="btn btn-primary btn-sm">Submit solution</button>
         </li>
-        <li
-          class="list-group-item d-flex justify-content-between align-items-center"
-        >
-          <div class="d-flex align-items-center">
-            <span class="problem-number">8</span>
-            <span class="problem-title">Piston Ring</span>
+        <li class="list-group-item">
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+              <span class="problem-number">9</span>
+              <span class="problem-title">Vehicle Parking</span>
+            </div>
+            <button class="btn btn-primary btn-sm">Start</button>
           </div>
-          <button class="btn btn-primary btn-sm">Submit solution</button>
         </li>
-        <li
-          class="list-group-item d-flex justify-content-between align-items-center"
-        >
-          <div class="d-flex align-items-center">
-            <span class="problem-number">9</span>
-            <span class="problem-title">Vehicle Parking</span>
+        <li class="list-group-item">
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+              <span class="problem-number">10</span>
+              <span class="problem-title">Baggage Tracking especially in airports</span>
+            </div>
+            <button class="btn btn-primary btn-sm">Start</button>
           </div>
-          <button class="btn btn-primary btn-sm">Submit solution</button>
         </li>
-        <li
-          class="list-group-item d-flex justify-content-between align-items-center"
-        >
-          <div class="d-flex align-items-center">
-            <span class="problem-number">10</span>
-            <span class="problem-title"
-              >Baggage Tracking especially in airports</span
-            >
+        <li class="list-group-item">
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+              <span class="problem-number">11</span>
+              <span class="problem-title">Food Delivery</span>
+            </div>
+            <button class="btn btn-primary btn-sm">Start</button>
           </div>
-          <button class="btn btn-primary btn-sm">Submit solution</button>
         </li>
-        <li
-          class="list-group-item d-flex justify-content-between align-items-center"
-        >
-          <div class="d-flex align-items-center">
-            <span class="problem-number">11</span>
-            <span class="problem-title">Food Delivery</span>
+        <li class="list-group-item">
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+              <span class="problem-number">12</span>
+              <span class="problem-title">Piston</span>
+            </div>
+            <button class="btn btn-primary btn-sm">Start</button>
           </div>
-          <button class="btn btn-primary btn-sm">Submit solution</button>
         </li>
-        <li
-          class="list-group-item d-flex justify-content-between align-items-center"
-        >
-          <div class="d-flex align-items-center">
-            <span class="problem-number">12</span>
-            <span class="problem-title">Piston</span>
+        <li class="list-group-item">
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+              <span class="problem-number">13</span>
+              <span class="problem-title">Training or creating an AI model</span>
+            </div>
+            <button class="btn btn-primary btn-sm" onclick="toggleDescription(13)">Start</button>
           </div>
-          <button class="btn btn-primary btn-sm">Submit solution</button>
+          <div id="description-13" class="problem-description">
+            <div class="problem-description-text">
+              Description for problem 13...
+            </div>
+            <button class="btn btn-secondary action-button">Continue</button>
+          </div>
         </li>
-        <li
-          class="list-group-item d-flex justify-content-between align-items-center"
-        >
-          <div class="d-flex align-items-center">
-            <span class="problem-number">13</span>
-            <span class="problem-title">Training or creating an AI model</span>
+        <li class="list-group-item">
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+              <span class="problem-number">14</span>
+              <span class="problem-title">Integrated Smart Factory System for Predictive Maintenance and Quality Control</span>
+            </div>
+            <button class="btn btn-primary btn-sm">Start</button>
           </div>
-          <button class="btn btn-primary btn-sm">Submit solution</button>
-        </li>
-        <li
-          class="list-group-item d-flex justify-content-between align-items-center"
-        >
-          <div class="d-flex align-items-center">
-            <span class="problem-number">14</span>
-            <span class="problem-title"
-              >Integrated Smart Factory System for Predictive Maintenance and
-              Quality Control</span
-            >
-          </div>
-          <button class="btn btn-primary btn-sm">Submit solution</button>
         </li>
       </ul>
     </div>
 
+    <!-- Add Modal HTML at the end of body tag -->
+    <div class="modal fade" id="solutionModal" tabindex="-1">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Submit the Solution</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <h6 class="fw-bold mb-2">Problem Statement:</h6>
+            <div class="problem-text mb-3"></div>
+            <div class="form-group mb-3">
+              <label for="solution-text" class="fw-bold">Your Solution:</label>
+              <textarea class="form-control" id="solution-text" rows="4"></textarea>
+            </div>
+            <div class="form-group mb-3">
+              <label for="file-upload" class="fw-bold">Upload Files (Optional):</label>
+              <input type="file" class="form-control" id="file-upload">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Submit Solution</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      const descriptions = {
+        1: "In a radial drilling machine, accurately determining the depth of the hole while drilling can be challenging. The goal is to develop an attachment that can be added to the existing radial drilling machine, enabling it to semi-automatically control and monitor the drilling depth, ensuring precise results with less manual intervention.",
+        2: "Child safety description...",
+        3: "Vehicle and smart home management description..."
+      };
+
+      function toggleDescription(problemId) {
+    const description = document.getElementById(`description-${problemId}`);
+    const startButton = event.currentTarget;
+    const continueButton = document.getElementById(`continue-${problemId}`);
+    
+    if (!description.classList.contains('show')) {
+        description.classList.add('show');
+        startButton.textContent = 'Close';
+        continueButton.classList.remove('d-none');
+    } else {
+        description.classList.remove('show');
+        startButton.textContent = 'Start';
+        continueButton.classList.add('d-none');
+    }
+}
+
+function showSolutionModal(problemId) {
+    const modal = new bootstrap.Modal(document.getElementById('solutionModal'));
+    const problemText = document.querySelector(`#description-${problemId} .problem-description-text`).textContent;
+    document.querySelector('#solutionModal .problem-text').textContent = problemText;
+    modal.show();
+}
+
+// Update continue button to call showSolutionModal
+document.querySelectorAll('.action-button').forEach(button => {
+    button.onclick = (e) => {
+        const problemId = e.target.closest('.list-group-item').querySelector('.problem-number').textContent;
+        showSolutionModal(problemId);
+    }
+});
+    </script>
   </body>
 </html>
