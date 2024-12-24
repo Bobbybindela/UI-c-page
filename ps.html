@@ -131,6 +131,24 @@
       .problem-description-text {
         flex: 1;
         margin-right: 20px;
+        max-height: 400px;
+        overflow-y: auto;
+        padding-right: 15px;
+        /* Webkit scrollbar styling */
+        &::-webkit-scrollbar {
+            width: 8px;
+        }
+        &::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+        &::-webkit-scrollbar-thumb {
+            background: #8e4574;
+            border-radius: 4px;
+        }
+        &::-webkit-scrollbar-thumb:hover {
+            background: #733960;
+        }
       }
 
       .action-button {
@@ -198,6 +216,35 @@
       .modal-backdrop.show {
         opacity: 0.7;
         transition: opacity 0.3s ease-in-out;
+      }
+
+      .modal .problem-text {
+        background-color: #f8f9fa;
+        padding: 15px;
+        border-radius: 5px;
+        border: 1px solid #dee2e6;
+        max-height: 300px;
+        overflow-y: auto;
+        margin-bottom: 20px;
+        
+        /* Webkit scrollbar styling */
+        &::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        &::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+        
+        &::-webkit-scrollbar-thumb {
+            background: #8e4574;
+            border-radius: 4px;
+        }
+        
+        &::-webkit-scrollbar-thumb:hover {
+            background: #733960;
+        }
       }
     </style>
   </head>
@@ -269,7 +316,7 @@
           </div>
           <div id="description-1" class="problem-description">
             <div class="problem-description-text">
-              In a radial drilling machine, accurately determining the depth of the hole while drilling can be challenging. The goal is to develop an attachment that can be added to the existing radial drilling machine, enabling it to semi-automatically control and monitor the drilling depth, ensuring precise results with less manual intervention.
+              <p>In a radial drilling machine, accurately determining the depth of the hole while drilling can be challenging. The goal is to develop an attachment that can be added to the existing radial drilling machine, enabling it to semi-automatically control and monitor the drilling depth, ensuring precise results with less manual intervention.</p>
             </div>
             <button class="btn btn-secondary action-button">Continue</button>
           </div>
@@ -278,13 +325,25 @@
           <div class="d-flex justify-content-between align-items-center">
             <div class="d-flex align-items-center">
               <span class="problem-number">2</span>
-              <span class="problem-title">ChildSafety</span>
+              <span class="problem-title">Child Safety Monitoring System</span>
             </div>
             <button class="btn btn-primary btn-sm" onclick="toggleDescription(2)">Start</button>
           </div>
           <div id="description-2" class="problem-description">
             <div class="problem-description-text">
-              Child safety description...
+                <h6 class="fw-bold mt-3">Company Challenge:</h6>
+                <p>Parents today are increasingly concerned about the safety and well-being of their children, especially regarding school attendance and safety during playtime in designated areas. We are seeking innovative proposals for a system that can track a child&apos;s school attendance and monitor their location during play. The system should feature:</p>
+
+                <h6 class="fw-bold">Boundary Alert System:</h6> 
+                <p>Define a specific safety boundary (e.g., 100 meters) around the child&apos;s play area, with an alert system that notifies parents if the child crosses this boundary.</p>
+                <h6 class="fw-bold">Parental Notifications:</h6>
+                <p>Real-time alerts should be sent to parents via a mobile app or SMS, informing them if the child misses school or leaves the designated play area.</p>
+                <h6 class="fw-bold">Mobile App/Web Dashboard:</h6>
+                <p>A user-friendly mobile app for parents to receive alerts and track their child&apos;s attendance and location, along with a detailed web dashboard that provides comprehensive reports and settings.</p>
+                <h6 class="fw-bold">Emergency Contact Integration:</h6>
+                <p>Include an emergency contact feature within the app, allowing parents to respond quickly to alerts or emergencies.</p>
+                <p>Additionally, the solution must ensure full compliance with privacy laws and regulations regarding children&apos;s data, implement strong security measures to protect sensitive information, and provide clear communication to parents regarding the system&apos;s purpose and functionality.</p>
+                <p>We challenge innovators to create a robust, scalable, and secure system that addresses these key safety and tracking concerns, providing peace of mind to parents and guardians.</p>
             </div>
             <button class="btn btn-secondary action-button">Continue</button>
           </div>
@@ -293,13 +352,42 @@
           <div class="d-flex justify-content-between align-items-center">
             <div class="d-flex align-items-center">
               <span class="problem-number">3</span>
-              <span class="problem-title">Vehical and smart home management</span>
+              <span class="problem-title">Vehical and Smart Home Management Integration</span>
+              <span>| IoT</span>
             </div>
             <button class="btn btn-primary btn-sm" onclick="toggleDescription(3)">Start</button>
           </div>
           <div id="description-3" class="problem-description">
             <div class="problem-description-text">
-              Vehicle and smart home management description...
+              <h6 class="fw-bold mt-3">Company Challenge:</h6>
+                <p>We are looking to create a seamless and intuitive experience where users can remotely manage their smart home devices simply by interacting with their vehicle's voice assistant. This innovation should offer a smooth transition between automotive control and home automation, enhancing convenience, safety, and functionality for users on the go.</p>
+
+                <h5 class="fw-bold">Key Features to Address:</h5>
+                <h6 class="fw-bold">Cross-Domain Voice Command Integration:</h6> 
+                <p>Develop a system that allows users to issue voice commands not only for vehicular control but also for managing various smart home devices, such as lighting, climate control, and entertainment systems.</p>
+                <h6 class="fw-bold">Home Automation Connectivity:</h6>
+                <p>Establish a strong and reliable connection between the car’s voice assistant and the user’s smart home devices, enabling users to control a variety of home automation functions remotely.</p>
+                <h6 class="fw-bold">Natural Language Understanding:</h6>
+                <p>Implement advanced natural language processing algorithms to ensure the voice assistant can accurately understand and process user commands related to both vehicle and home control seamlessly.</p>
+                <h6 class="fw-bold">Secure Authentication:</h6>
+                <p>Integrate secure authentication measures to verify the user's identity and prevent unauthorized access to home devices through voice commands, ensuring privacy and security.</p>
+                <h6 class="fw-bold">Device-Specific Commands:</h6>
+                <p>Enable users to issue commands specific to individual devices, such as adjusting thermostats, turning lights on/off, or controlling entertainment systems, via voice commands.</p>
+                <h6 class="fw-bold">Remote Monitoring:</h6>
+                <p>Provide users the ability to check the status of their home devices through voice queries while driving, ensuring peace of mind and efficient management of their smart home.</p>
+                <h6 class="fw-bold">Integration with Smart Home Platforms:</h6>
+                <p>Ensure compatibility with popular smart home platforms like Google Home and Amazon Alexa, which will extend the system’s functionality and support a broader range of devices.</p>
+                <h6 class="fw-bold">Contextual Understanding:</h6>
+                <p>Develop the system’s ability to understand contextual information, such as user location or time of day, to offer more natural and tailored voice interactions (e.g., adjusting temperature based on proximity or weather).</p>
+                <h5 class="fw-bold">Considerations for Solution Design:</h5>
+                <h6 class="fw-bold">Privacy Protection:</h6>
+                <p>Ensure robust privacy measures to protect user data, including secure communication channels between the car's voice assistant and smart home devices, and prevent unauthorized access.</p>
+                <h6 class="fw-bold">Device Compatibility:</h6>
+                <p>The solution should support a wide variety of smart home devices, ensuring that it works seamlessly across diverse user setups and preferences.</p>
+                <h6 class="fw-bold">User-Friendly Experience:</h6>
+                <p>Design an intuitive and user-friendly interface that provides clear feedback on voice command execution, with easy navigation and real-time control for a seamless experience.</p>
+                
+                <p>We invite innovators to propose a solution that integrates vehicle voice assistants with smart home management, ensuring a secure, efficient, and user-friendly experience that enhances both automotive and home automation functionalities.</p>
             </div>
             <button class="btn btn-secondary action-button">Continue</button>
           </div>
@@ -307,10 +395,39 @@
         <li class="list-group-item">
           <div class="d-flex justify-content-between align-items-center">
             <div class="d-flex align-items-center">
-              <span class="problem-number">4</span>
-              <span class="problem-title">Machine</span>
+              <span class="problem-number">3</span>
+              <span class="problem-title">Machine Support and Packaging Solution</span>
+              <span>| Packaging</span>
             </div>
-            <button class="btn btn-primary btn-sm">Start</button>
+            <button class="btn btn-primary btn-sm" onclick="toggleDescription(4)">Start</button>
+          </div>
+          <div id="description-3" class="problem-description">
+            <div class="problem-description-text">
+              <h6 class="fw-bold mt-3">Company Challenge:</h6>
+                <p>We are facing a decrease in the service life of our machines due to the lack of support at one end. The challenge is to design a solution that provides support to the machine while ensuring that it is functional and efficient in handling bottles during transport and filling. The solution should address the following key requirements:</p>
+
+                <h5 class="fw-bold">Key Features to Address:</h5>
+                <h6 class="fw-bold">Bearing Support:</h6> 
+                <p>Design a bearing to be installed at one end of the machine to provide additional support, preventing premature wear and extending the service life of the equipment.</p>
+                <h6 class="fw-bold">Reusability:</h6>
+                <p>The bearing support system should be reusable, ensuring long-term durability and cost-effectiveness for ongoing operations.</p>
+                <h6 class="fw-bold">Ease of Bottle Handling:</h6>
+                <p>The solution should facilitate the easy removal of bottles from their packing without causing damage to the bottles or packaging materials.</p>
+                <h6 class="fw-bold">Government Compliance for Packaging:</h6>
+                <p>Ensure that the packaging material used for the bottles complies with relevant government regulations and environmental standards, avoiding any non-compliant materials.</p>
+                <h6 class="fw-bold">Returnable Packaging:</h6>
+                <p>If heavy commercial vehicles are used to transport bottles to the filling station, the packaging material should be designed to be returned to the production plant for reuse, minimizing waste and promoting sustainability.</p>
+                <h5 class="fw-bold">Considerations for Solution Design:</h5>
+                <h6 class="fw-bold">Durability and Strength:</h6>
+                <p>The bearing and packaging solutions must be designed to withstand the demands of heavy-duty operations, ensuring that both support and packaging materials last over time.</p>
+                <h6 class="fw-bold">Environmental Impact:</h6>
+                <p>Focus on reducing environmental impact by using recyclable and reusable materials for packaging, ensuring compliance with sustainability goals and regulations.</p>
+                <h6 class="fw-bold">Cost Efficiency:</h6>
+                <p>The solution should be cost-effective both in terms of initial investment and long-term operational savings, considering the reusability and durability of the components.</p>
+                
+                <p>We challenge innovators to develop a solution that enhances machine longevity, supports efficient bottle handling, and ensures compliance with regulatory standards while addressing sustainability and operational efficiency.</p>
+            </div>
+            <button class="btn btn-secondary action-button">Continue</button>
           </div>
         </li>
         <li class="list-group-item">
@@ -417,7 +534,7 @@
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title">Submit the Solution</h5>
+            <h5 class="modal-title fw-bold">Submit the Solution</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
           </div>
           <div class="modal-body">
@@ -467,8 +584,8 @@
 
 function showSolutionModal(problemId) {
     const modal = new bootstrap.Modal(document.getElementById('solutionModal'));
-    const problemText = document.querySelector(`#description-${problemId} .problem-description-text`).textContent;
-    document.querySelector('#solutionModal .problem-text').textContent = problemText;
+    const problemText = document.querySelector(`#description-${problemId} .problem-description-text`).innerHTML;
+    document.querySelector('#solutionModal .problem-text').innerHTML = problemText;
     modal.show();
 }
 
